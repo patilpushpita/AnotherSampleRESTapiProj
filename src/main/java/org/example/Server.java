@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import com.sun.net.httpserver.*;
 
 public class Server {
-    public void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         var port = new InetSocketAddress(8000);
 
         var server = HttpServer.create(port, 0);
@@ -41,7 +41,7 @@ public class Server {
         }
     }
 
-    class RandomNumberHandler implements HttpHandler {
+    static class RandomNumberHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange request) throws IOException {
             var randomNumber = (int) (Math.random() * 100);
